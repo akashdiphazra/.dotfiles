@@ -9,8 +9,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 ```
 ## Setting Up
-#### 1. ``` mkdir ~/.config/nvim   ```
-#### 2. ``` touch ~/.config/nvim/init.vim   ```
-#### 3. ``` Type ESC :PlugInstall command to install plugins  ```
+* ``` mkdir ~/.config/nvim  .  ```
+* ``` touch ~/.config/nvim/init.vim .   ```
+* ``` Type ESC :PlugInstall command to install plugins.  ```
 
 
