@@ -43,6 +43,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox' 
 " Fuzzy Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Initialize plugin system
 call plug#end()
 
