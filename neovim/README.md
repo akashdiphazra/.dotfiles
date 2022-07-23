@@ -1,5 +1,16 @@
 # Neovim 
 #### Latest version build from source [Neovim](https://github.com/neovim/neovim)
+
+#### Cloning the repo.
+```sh
+git clone https://github.com/neovim/neovim.git
+```
+
+#### Prerequisites 
+```sh
+sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+```
+
 ## Plugins 
 ### [Vim Plug](https://github.com/junegunn/vim-plug)
 
