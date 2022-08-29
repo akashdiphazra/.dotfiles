@@ -132,9 +132,9 @@ alias suroot='sudo -E -s'  # Alias for root mode in bash
 
 # Customizing the prompt
 prompt_context() {
+  echo "" # For Spacing issue in vertical prompt
    # Custom (Random emoji)
   emojis=("🫀" "🔥" "💀" "👑" "🐻" "🎯" "👹" "🎄" "🐒" "🍻" "🍄" "⛑ " "🎉" "👽" "👺" "🌙" "🤖" "🧟" "🤡" "🐧️" "🧠" "💣" "🦉" "🎃" "👁️ " "📢" "🫁" "💡")
-  echo "" # For Spacing issue in vertical prompt
   RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} ))
   prompt_segment grey default "${emojis[$RAND_EMOJI_N]} \[\033[01;37m\]\u\[\033[01;33m\]"
 }
