@@ -129,16 +129,16 @@ export LANG=en_IN.UTF-8
 shopt -s cdspell # autocorrects cd misspellings
 export MANPAGER="nvim +Man!" # Open manpages in defualt editor
 alias suroot='sudo -E -s'  # Alias for root mode in bash
+source /etc/profile.d/vte.sh # Opens new terminal window with the same directory
 
 # Customizing the prompt
 prompt_context() {
   echo "" # For Spacing issue in vertical prompt
-   # Custom (Random emoji)
-  emojis=("🫀" "🔥" "💀" "👑" "🐻" "🎯" "👹" "🎄" "🐒" "🍻" "🍄" "⛑ " "🎉" "👽" "👺" "🌙" "🤖" "🧟" "🤡" "🐧️" "🧠" "💣" "🦉" "🎃" "👁️ " "📢" "🫁" "💡")
+  # Custom (Random emoji)
+  emojis=("🫀" "🔥" "💀" "👑" "🐻" "🎯" "👹" "🎄" "🐒" "🍻" "🍄" "🛸" "🎉" "👽" "👺" "🌙" "🤖" "🧟" "🤡" "🐧️" "🧠" "💣" "🦉" "🎃" "👁️ " "📢" "🫁" "💡")
   RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} ))
   prompt_segment grey default "${emojis[$RAND_EMOJI_N]} \[\033[01;37m\]\u\[\033[01;33m\]"
 }
-
 # export PS1='\n\[\033[01;31m\]\u@\H:\[\033[02;36m\] \w \$\[\033[00m\] '
 
 
