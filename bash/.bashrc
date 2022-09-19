@@ -4,10 +4,43 @@ case $- in
     *) return;;
 esac
 
+#------------------------------------------------------------ Default Bash Configs ---------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------------
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc"
+		fi
+	done
+fi
+
+unset rc
+
+#------------------------------------------------------------ Default Bash Configs ---------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------------
+
 # Path to your oh-my-bash installation.
 export OSH=/home/akashdiphazra/.oh-my-bash
 # For Terminal Colors
 export TERM="xterm-256color"                      # getting proper colors
+export HISTCONTROL=ignoredups:erasedups # no duplicate history entries
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
@@ -129,7 +162,6 @@ export LANG=en_IN.UTF-8
 shopt -s cdspell # autocorrects cd misspellings
 export MANPAGER="nvim +Man!" # Open manpages in defualt editor
 alias suroot='sudo -E -s'  # Alias for root mode in bash
-source /etc/profile.d/vte.sh # Opens new terminal window with the same directory
 
 # Customizing the prompt
 prompt_context() {
@@ -139,6 +171,4 @@ prompt_context() {
   RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} ))
   prompt_segment grey default "${emojis[$RAND_EMOJI_N]} \[\033[01;37m\]\u\[\033[01;33m\]"
 }
-# export PS1='\n\[\033[01;31m\]\u@\H:\[\033[02;36m\] \w \$\[\033[00m\] '
-
 
