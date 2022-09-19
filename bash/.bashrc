@@ -160,14 +160,26 @@ source "$OSH"/oh-my-bash.sh
 export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
 shopt -s cdspell # autocorrects cd misspellings
-export MANPAGER="nvim +Man!" # Open manpages in defualt editor
+export MANPAGER="nvim +Man!" # Open manpages in nvim editor
 alias suroot='sudo -E -s'  # Alias for root mode in bash
+
+# Shopt
+shopt -s autocd # change to named directory
+shopt -s cdspell # autocorrects cd misspellings
+shopt -s cmdhist # save multi-line commands in history as single line
+shopt -s dotglob
+shopt -s histappend # do not overwrite history
+shopt -s expand_aliases # expand aliases
+shopt -s checkwinsize # checks term size when bash regains control
+
+#ignore upper and lowercase when TAB completion
+bind "set completion-ignore-case on"
 
 # Customizing the prompt
 prompt_context() {
   echo "" # For Spacing issue in vertical prompt
   # Custom (Random emoji)
-  emojis=("🫀" "🔥" "💀" "👑" "🐻" "🎯" "👹" "🎄" "🐒" "🍻" "🍄" "🛸" "🎉" "👽" "👺" "🌙" "🤖" "🧟" "🤡" "🐧️" "🧠" "💣" "🦉" "🎃" "👁️ " "📢" "🫁" "💡")
+  emojis=("🫀" "🔥" "💀" "👑" "🐻" "🎯" "👹" "🎄" "🐒" "🍻" "🍄" "🛸" "🎉" "👽" "👺" "🌙" "🤖" "🧟" "🤡" "🐧️" "🧠" "💣" "🦉" "🎃" "👁️ " "📢" "🫁" "💡" "🥷")
   RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} ))
   prompt_segment grey default "${emojis[$RAND_EMOJI_N]} \[\033[01;37m\]\u\[\033[01;33m\]"
 }
