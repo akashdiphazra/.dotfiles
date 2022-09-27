@@ -1,3 +1,9 @@
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+# █░▄▄▀██░█▀▄█░▄▄▀██░▄▄▄░██░██░██░▄▄▀█▄░▄██░▄▄░████░██░█░▄▄▀██░▄▄▄░██░▄▄▀█░▄▄▀
+# █░▀▀░██░▄▀██░▀▀░██▄▄▄▀▀██░▄▄░██░██░██░███░▀▀░████░▄▄░█░▀▀░██▀▀▀▄▄██░▀▀▄█░▀▀░
+# █░██░██░██░█░██░██░▀▀▀░██░██░██░▀▀░█▀░▀██░███████░██░█░██░██░▀▀▀░██░██░█░██░
+# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
 # Enable the subsequent settings only in interactive sessions
 case $- in
   *i*) ;;
@@ -187,9 +193,10 @@ shopt -s checkwinsize # checks term size when bash regains control
 bind "set completion-ignore-case on"
 
 # Aliases
-alias upgrade='sudo dnf upgrade'
-alias clean_repo_cache='sudo dnf clean dbcache'
-alias clean_all_cache='sudo dnf clean all'
+alias upgrade='sudo dnf -y upgrade'
+alias clean_repocache='sudo dnf clean dbcache'
+alias clean_allcache='sudo dnf clean all'
+alias update_ohmybash='upgrade_oh_my_bash'
 
 # Customizing the ohmybash prompt
 prompt_context() {
