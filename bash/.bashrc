@@ -188,7 +188,7 @@ bind "set completion-ignore-case on"
 
 # Aliases
 alias upgrade='sudo dnf upgrade'
-alias clean_repo_cash='sudo dnf clean dbcache'
+alias clean_repo_cache='sudo dnf clean dbcache'
 alias clean_all_cache='sudo dnf clean all'
 
 # Customizing the ohmybash prompt
