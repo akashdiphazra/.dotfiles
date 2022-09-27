@@ -36,6 +36,17 @@ unset rc
 #------------------------------------------------------------ Default Bash Configs ---------------------------------------------------
 #-------------------------------------------------------------------------------------------------------------------------------------
 
+### SETTING OTHER ENVIRONMENT VARIABLES
+if [ -z "$XDG_CONFIG_HOME" ] ; then
+    export XDG_CONFIG_HOME="$HOME/.config"
+fi
+if [ -z "$XDG_DATA_HOME" ] ; then
+    export XDG_DATA_HOME="$HOME/.local/share"
+fi
+if [ -z "$XDG_CACHE_HOME" ] ; then
+    export XDG_CACHE_HOME="$HOME/.cache"
+fi
+
 # Path to your oh-my-bash installation.
 export OSH=/home/akashdiphazra/.oh-my-bash
 # For Terminal Colors
@@ -175,7 +186,12 @@ shopt -s checkwinsize # checks term size when bash regains control
 #ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
-# Customizing the prompt
+# Aliases
+alias upgrade='sudo dnf upgrade'
+alias clean_repo_cash='sudo dnf clean dbcache'
+alias clean_all_cache='sudo dnf clean all'
+
+# Customizing the ohmybash prompt
 prompt_context() {
   echo "" # For Spacing issue in vertical prompt
   # Custom (Random emoji)
