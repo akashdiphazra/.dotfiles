@@ -173,11 +173,18 @@ source "$OSH"/oh-my-bash.sh
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
 
+# Cargo Ruby Installer Path
+. "$HOME/.cargo/env"
+# Java Runtime Environment Path
+JAVA_HOME="/usr/local/java/"
+# Go Runtime Path
+export PATH=$PATH:/usr/local/go/bin
+
 # Run all applications in UTF-8 format specially for tmux and other
 export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
 shopt -s cdspell # autocorrects cd misspellings
-export MANPAGER="nvim +Man!" # Open manpages in nvim editor
+export MANPAGER="lvim +Man!" # Open manpages in nvim editor
 alias suroot='sudo -E -s'  # Alias for root mode in bash
 
 # Shopt
@@ -207,3 +214,18 @@ prompt_context() {
   prompt_segment grey default "${emojis[$RAND_EMOJI_N]} \[\033[01;37m\]\u\[\033[01;33m\]"
 }
 
+prompt_virtualenv() {
+  local virtualenv_path="$VIRTUAL_ENV"
+  if [[ -n $virtualenv_path ]]; then
+    prompt_segment orange default " $(basename $virtualenv_path)"
+  fi
+}
+
+prompt_agnoster_main() {
+  RETVAL=$?
+  CURRENT_BG='NONE'
+  prompt_virtualenv
+  prompt_context
+}
+
+PS1="\[$(prompt_agnoster_main)\]"
