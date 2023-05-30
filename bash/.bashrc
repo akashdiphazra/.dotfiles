@@ -174,11 +174,11 @@ source "$OSH"/oh-my-bash.sh
 # alias ohmybash="mate ~/.oh-my-bash"
 
 # Cargo Ruby Installer Path
-. "$HOME/.cargo/env"
-# Java Runtime Environment Path
-JAVA_HOME="/usr/local/java/"
+export PATH=$PATH:~/.cargo/bin/
 # Go Runtime Path
 export PATH=$PATH:/usr/local/go/bin
+# Java Runtime Environment Path
+export JAVA_HOME=/usr/local/java/bin
 
 # Run all applications in UTF-8 format specially for tmux and other
 export LC_ALL=en_IN.UTF-8
