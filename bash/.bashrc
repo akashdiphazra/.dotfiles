@@ -178,7 +178,8 @@ export PATH=$PATH:~/.cargo/bin/
 # Go Runtime Path
 export PATH=$PATH:/usr/local/go/bin
 # Java Runtime Environment Path
-export JAVA_HOME=/usr/local/java/bin
+export JAVA_HOME="/usr/local/java/bin"
+export PATH=JAVA_HOME:$PATH
 
 # Run all applications in UTF-8 format specially for tmux and other
 export LC_ALL=en_IN.UTF-8
