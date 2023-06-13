@@ -1,4 +1,7 @@
-require("competitest").setup {
+local status, competitest = pcall(require, "competitest")
+if (not status) then return end
+
+competitest.setup {
   runner_ui = {
     interface = "split"
   },
@@ -14,13 +17,3 @@ require("competitest").setup {
   },
   testcases_use_single_file = true
 }
-
-lvim.builtin.which_key.mappings["k"] = {
-  name = "Competitive Test",
-  r = { "<cmd>CompetiTestRun<cr>", "Run" },
-  a = { "<cmd>CompetiTestAdd<cr>", "Add" },
-  e = { "<cmd>CompetiTestEdit<cr>", "Edit" },
-  d = { "<cmd>CompetiTestDelete<cr>", "Delete" },
-  k = { "<cmd>CompetiTestRunNE<cr>", "Toggle UI" }
-}
-

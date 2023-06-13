@@ -1,6 +1,8 @@
+local status, gruvbox = pcall(require, "gruvbox")
+if (not status) then return end
+
 -- setup must be called before loading the colorscheme
--- Default options:
-require("gruvbox").setup({
+gruvbox.setup({
   undercurl = true,
   underline = true,
   bold = true,

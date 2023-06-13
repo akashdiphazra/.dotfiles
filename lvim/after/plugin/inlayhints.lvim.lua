@@ -1,4 +1,7 @@
-require("lsp-inlayhints").setup()
+local status, lsp_inlayhints = pcall(require, "lsp-inlayhints")
+if (not status) then return end
+
+lsp_inlayhints.setup()
 vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
 vim.api.nvim_create_autocmd("LspAttach", {
   group = "LspAttach_inlayhints",
@@ -11,4 +14,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     require("lsp-inlayhints").on_attach(client, bufnr)
   end
 })
-
